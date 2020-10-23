@@ -4,10 +4,10 @@
   "main": "Main.xaml",
   "dependencies": {
     "GetWorkflowDetailActivities": "[1.0.1]",
-    "Reusable.Components": "[1.0.2]",
-    "UiPath.Excel.Activities": "[2.8.5]",
+    "Reusable.Components": "[1.0.4]",
+    "UiPath.Excel.Activities": "[2.8.6]",
     "UiPath.System.Activities": "[20.4.0]",
-    "UiPath.UIAutomation.Activities": "[20.4.1]"
+    "UiPath.UIAutomation.Activities": "[20.4.2]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
@@ -31,7 +31,7 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "fileInfos": []
+    "fileInfoCollection": []
   },
   "expressionLanguage": "VisualBasic"
 }
