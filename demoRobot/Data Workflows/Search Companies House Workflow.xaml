@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>912,701.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>651.2,701.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Search_Companies_House_Workflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -111,19 +111,19 @@
               <av:Size x:Key="ShapeSize">200,52.8</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" Browser="[IN_browserCompaniesHouse]" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Companies'" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="ae1aabc4115a59e79d2d7b260690c61c" TimeoutMS="60000" UiBrowser="[IN_browserCompaniesHouse]">
+          <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" Browser="[IN_browserCompaniesHouse]" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe Companies'" sap:VirtualizedContainerService.HintSize="1006.4,2941.6" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="ae1aabc4115a59e79d2d7b260690c61c" TimeoutMS="60000" UiBrowser="[IN_browserCompaniesHouse]">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence sap:VirtualizedContainerService.HintSize="972.8,2476" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence sap:VirtualizedContainerService.HintSize="972.8,2794.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="931.2,2383.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="931.2,2701.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="boolCompaniesHouseExists" />
                     </Sequence.Variables>
@@ -163,7 +163,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:FindChildren>
-                    <If Condition="[ieChildrenCompaniesElements.Count = 1]" sap:VirtualizedContainerService.HintSize="889.6,1820.8" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[ieChildrenCompaniesElements.Count = 1]" sap:VirtualizedContainerService.HintSize="889.6,2139.2" sap2010:WorkflowViewState.IdRef="If_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -171,13 +171,13 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="512,1671.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ieChildrenCompaniesElements]">
+                        <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="512,1989.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ieChildrenCompaniesElements]">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="ui:UiElement">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="ui:UiElement" Name="element" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476.8,1536.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476.8,1855.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="s:String[]" Name="lstCompanyDetails" />
                                   <Variable x:TypeArguments="x:String" Name="strCompanyInfo" />
@@ -197,9 +197,28 @@
                                     <OutArgument x:TypeArguments="x:String">[strCompanyName]</OutArgument>
                                   </ui:GetValue.Value>
                                 </ui:GetValue>
-                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Address" sap:VirtualizedContainerService.HintSize="435.2,107.2" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,278.4" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Address" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d1fd8fcb-c180-4ad8-a089-b1dbc3d3ee42" InformativeScreenshot="ba718e1940b7fbe11230c7083fd73c50" Selector="[element.Selector.ToString +&quot;&lt;webctrl isleaf='1' parentid='results' tag='P' /&gt;&quot;]" TimeoutMS="60000" WaitForReady="INTERACTIVE" />
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:String">[strCompanyAddress]</OutArgument>
+                                        </ui:GetValue.Value>
+                                      </ui:GetValue>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                </ui:CommentOut>
+                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Address" sap:VirtualizedContainerService.HintSize="435.2,107.2" sap2010:WorkflowViewState.IdRef="GetValue_4">
                                   <ui:GetValue.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d1fd8fcb-c180-4ad8-a089-b1dbc3d3ee42" InformativeScreenshot="ba718e1940b7fbe11230c7083fd73c50" Selector="[element.Selector.ToString +&quot;&lt;webctrl isleaf='1' parentid='results' tag='P' /&gt;&quot;]" TimeoutMS="60000" WaitForReady="INTERACTIVE" />
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d1fd8fcb-c180-4ad8-a089-b1dbc3d3ee42" InformativeScreenshot="904f4fc4e68c74df3c57d77ab34fa488" Selector="&lt;html title='Companies House' /&gt;&lt;webctrl idx='2' parentid='results' tag='P' /&gt;" TimeoutMS="60000" WaitForReady="INTERACTIVE" />
                                   </ui:GetValue.Target>
                                   <ui:GetValue.Value>
                                     <OutArgument x:TypeArguments="x:String">[strCompanyAddress]</OutArgument>

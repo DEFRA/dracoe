@@ -1,14 +1,15 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="save_Excel_Attachments_Workflow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="listEmails" Type="InArgument(scg:List(snm:MailMessage))" />
     <x:Property Name="OUT_strSendEmail" Type="OutArgument(x:String)" />
     <x:Property Name="OUT_msgMsg" Type="OutArgument(snm:MailMessage)" />
     <x:Property Name="IN_EmailAccount" Type="InArgument(x:String)" />
+    <x:Property Name="OUT_strMsgReceivedTime" Type="OutArgument(x:String)" />
+    <x:Property Name="IN_msgMsg" Type="InArgument(snm:MailMessage)" />
   </x:Members>
   <this:save_Excel_Attachments_Workflow.IN_EmailAccount>
     <InArgument x:TypeArguments="x:String" />
   </this:save_Excel_Attachments_Workflow.IN_EmailAccount>
-  <sap:VirtualizedContainerService.HintSize>715,1128</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>651.2,1126.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -53,87 +54,80 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Save email attachments &amp; generate filename list for loading back later" DisplayName="Save attachmnts" sap:VirtualizedContainerService.HintSize="599,1063" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listEmails]">
-    <ui:ForEach.Body>
-      <ActivityAction x:TypeArguments="snm:MailMessage">
-        <ActivityAction.Argument>
-          <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="msg" />
-        </ActivityAction.Argument>
-        <Sequence DisplayName="Save Attachments" sap:VirtualizedContainerService.HintSize="563,929" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="scg:ICollection(x:String)" Name="listAttachments" />
-            <Variable x:TypeArguments="x:String" Name="strAttName" />
-            <Variable x:TypeArguments="snm:MailMessage" Name="msgInProgressMsg" />
-          </Sequence.Variables>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[msg.Subject.ToLower.Contains(&quot;licence&quot;) Or msg.Subject.ToLower.Contains(&quot;license&quot;)]" sap:VirtualizedContainerService.HintSize="521,637" sap2010:WorkflowViewState.IdRef="If_1">
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,489" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listInProgressMsgs" />
-                  <Variable x:TypeArguments="x:String" Name="variable1" />
-                </Sequence.Variables>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="Inbox\COMPANY INFO\In Progress" MailMessage="[msg]" />
-                <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[IN_EmailAccount]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox\COMPANY INFO\In Progress" MarkAsRead="False" Messages="[listInProgressMsgs]" OnlyUnreadMessages="False" Top="1">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:GetOutlookMailMessages>
-                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="snm:MailMessage">[msgInProgressMsg]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="snm:MailMessage">[listInProgressMsgs(0)]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="Save all attachments in each message iff *.xlsx|.XLSX|.xls|.xls" DisplayName="Save Email Attachments" Filter=".*(.xlsx|.XLSX|.xls|.xls)" FolderPath="[Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;)+ &quot;\Desktop\Attachments&quot;]" sap:VirtualizedContainerService.HintSize="334,108" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[msgInProgressMsg]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:SaveMailAttachments>
-              </Sequence>
-            </If.Then>
-          </If>
-          <Assign sap:VirtualizedContainerService.HintSize="521,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[OUT_strSendEmail]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[msgInProgressMsg.sender.address]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="521,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-            <Assign.To>
-              <OutArgument x:TypeArguments="snm:MailMessage">[OUT_msgMsg]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="snm:MailMessage">[msgInProgressMsg]</InArgument>
-            </Assign.Value>
-          </Assign>
-        </Sequence>
-      </ActivityAction>
-    </ui:ForEach.Body>
+  <Sequence DisplayName="Save Attachments" sap:VirtualizedContainerService.HintSize="375.2,1061.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:ICollection(x:String)" Name="listAttachments" />
+      <Variable x:TypeArguments="x:String" Name="strAttName" />
+      <Variable x:TypeArguments="snm:MailMessage" Name="msgInProgressMsg" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listInProgressMsg" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-  </ui:ForEach>
+    <ui:LogMessage DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Workflow Started - save Excel Attachments&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_3" MailFolder="Inbox\COMPANY INFO\In Progress" MailMessage="[IN_msgMsg]" />
+    <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[IN_EmailAccount]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_3" MailFolder="Inbox\COMPANY INFO\In Progress" MarkAsRead="False" Messages="[listInProgressMsg]" OnlyUnreadMessages="False" Top="1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetOutlookMailMessages>
+    <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="snm:MailMessage">[msgInProgressMsg]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="snm:MailMessage">[listInProgressMsg(0)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="Save all attachments in each message iff *.xlsx|.XLSX|.xls|.xls" DisplayName="Save Email Attachments" Filter=".*(.xlsx|.XLSX|.xls|.xls)" FolderPath="[Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;)+ &quot;\Desktop\Attachments&quot;]" sap:VirtualizedContainerService.HintSize="333.6,112.8" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_3" Message="[msgInProgressMsg]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SaveMailAttachments>
+    <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[OUT_strSendEmail]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[msgInProgressMsg.sender.address]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="snm:MailMessage">[OUT_msgMsg]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="snm:MailMessage">[msgInProgressMsg]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[OUT_strMsgReceivedTime]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[msgInProgressMsg.Headers("Date")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log End" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Workflow Ended - save Excel Attachments&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+  </Sequence>
 </Activity>
