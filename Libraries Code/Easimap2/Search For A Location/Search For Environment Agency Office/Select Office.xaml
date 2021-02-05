@@ -1,0 +1,138 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Select_Office" this:Select_Office.IN_strOfficeName="FOSS HOUSE" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IN_browserEasimap2" Type="InArgument(ui:Browser)" />
+    <x:Property Name="IN_strOfficeName" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>679,519</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Select_Office_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Select_Office" sap:VirtualizedContainerService.HintSize="476,372" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserEasimap2]" BrowserType="IE" DisplayName="Attach Browser - Easimap2" sap:VirtualizedContainerService.HintSize="434,280" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="34ceb7af9914a1e4ad5cf69946bf7d43">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Environment Agency Office" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[IN_strOfficeName]">
+            <ui:SelectItem.Items>
+              <scg:List x:TypeArguments="x:String" Capacity="50">
+                <x:String>BLANDFORD DEPOT</x:String>
+                <x:String>BRADNEY DEPOT</x:String>
+                <x:String>BRAMPTON OFFICE</x:String>
+                <x:String>BRIDGE END DEPOT</x:String>
+                <x:String>BRIGHOUSE STORE</x:String>
+                <x:String>BRISTOL CITY COUNCIL OFFICE</x:String>
+                <x:String>BRUNEL WAY DEPOT</x:String>
+                <x:String>BULL HASSOCKS PUMP HOUSE</x:String>
+                <x:String>BURGATE MANOR STORE</x:String>
+                <x:String>CALVERTON FISH FARM</x:String>
+                <x:String>CAMBRAY FARM STORE</x:String>
+                <x:String>CAVERSHAM LAKES DEPOT</x:String>
+                <x:String>CAVERSHAM LOCK STORE</x:String>
+                <x:String>CAVERSHAM NAVIGATION OFFICE</x:String>
+                <x:String>CERES HOUSE</x:String>
+                <x:String>CHELMSFORD OFFICE</x:String>
+                <x:String>CHICHESTER OFFICE</x:String>
+                <x:String>CHIPPENHAM OFFICE</x:String>
+                <x:String>CLEWER STORE</x:String>
+                <x:String>CLYST HONITON DEPOT</x:String>
+                <x:String>COSTESSEY FISH FARM</x:String>
+                <x:String>CRAMLINGTON DEPOT</x:String>
+                <x:String>CROSSENS DEPOT</x:String>
+                <x:String>CROSSKILL HOUSE</x:String>
+                <x:String>CURRYMOOR PUMP HOUSE</x:String>
+                <x:String>DENTON WHARF STORE</x:String>
+                <x:String>DIRTNESS DEPOT</x:String>
+                <x:String>DRAGONFLY HOUSE</x:String>
+                <x:String>DRAYCOTT DEPOT</x:String>
+                <x:String>EAST HYDE STORE</x:String>
+                <x:String>EAST LAKES DEPOT</x:String>
+                <x:String>EAST STREAM STORE</x:String>
+                <x:String>EDMONTON STORE</x:String>
+                <x:String>EGMERE STORE</x:String>
+                <x:String>EIGN DEPOT</x:String>
+                <x:String>ELY DEPOT</x:String>
+                <x:String>ELY OFFICE</x:String>
+                <x:String>EXETER SCIENCE PARK LABORATORY</x:String>
+                <x:String>FARNHAM STORE</x:String>
+                <x:String>FETCHAM STORE</x:String>
+                <x:String>FINE JANE DEPOT</x:String>
+                <x:String>FLOOD FORECASTING CENTRE</x:String>
+                <x:String>FOBNEY MEAD OFFICE</x:String>
+                <x:String>FORD STORE</x:String>
+                <x:String>FOSS HOUSE</x:String>
+                <x:String>FURNACE LANE STORE</x:String>
+                <x:String>FYFIELDS STORE</x:String>
+                <x:String>GAINSBOROUGH DEPOT</x:String>
+                <x:String>GAINSBOROUGH OFFICE</x:String>
+                <x:String>GATEHAMPTON STORE</x:String>
+              </scg:List>
+            </ui:SelectItem.Items>
+            <ui:SelectItem.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b0a89908-4800-4482-bbf9-eadbf779d17b" InformativeScreenshot="5cf824a052eaa508373bcdbd2d3c85cb" Selector="&lt;webctrl tag='SELECT' type='select-one' role='list' title='Select an Environment Agency office' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:SelectItem.Target>
+          </ui:SelectItem>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+  </Sequence>
+</Activity>
