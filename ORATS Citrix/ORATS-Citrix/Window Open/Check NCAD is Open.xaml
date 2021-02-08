@@ -1,0 +1,81 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Check_NCAD_is_Open" this:Check_NCAD_is_Open.IN_intTimeout="30000" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="OUT_boolNcadOpen" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="IN_intTimeout" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>679,519</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Check_NCAD_is_Open_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Check_NCAD_is_Open" sap:VirtualizedContainerService.HintSize="376,299" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ImageFound DisplayName="Image Exists NCAD Hotbar" Found="[OUT_boolNcadOpen]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+      <ui:ImageFound.Image>
+        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAADsAAAAbCAYAAADCifeFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGbSURBVFhH7ZQxcsIwEEV1Ce7imkNQcgg6nwFXPoDpaChdZgKZUJAjZOxJ+hQUKZOAfrSWLMm2CtmpwgLzhL0W9v/6K4uiKMCFu9lbhZdZKSW4ICQALojvyw+4IJRhNh+BqxqZIK5q5PLlZfZTJcwF8fL6AS6I/dsFY8nSNRY74FC3VFjMN1gdvdquxGx5wtbOiSFwnwAhTTGIh/oLY2mMpJUToM6T5QZJfra1bd49jyPObEhTDOKxlhjL4XhS5lxqTdK5Xztjpcxr0XS8xmyu6S+IrpfIGqOheV7dLHBIUwzTzA7MkNj2V9V6i+Eg4WZO59i/3k3WbRn3zJCmGMRTJTEWEmHblIyZFbfCqK39Fqa2t6n1Eve3w8Csl6qB7h/SFMNks216mTJtX1ZmL3deYFSzKQ+T063sp903251PhDTFIPZqGIt+qG6rpG3dBiWOan57mgWwxwPxrj2H5nT6/RddSFMMfzBrUuntTUp12JqmDdPSM+PX3fzm/6pmDVIHtfPMIoY0xTDJ7H/lbvZW4WX2+R3gAqNkJX4BV0/LhuZgi4MAAAAASUVORK5CYII=" />
+      </ui:ImageFound.Image>
+      <ui:ImageFound.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="92813c47-7a2f-4dd6-af1f-af47df7596d8" Selector="&lt;wnd app='wfica32.exe' cls='Transparent Windows Client' title='NCAD Version * - \\Remote' /&gt;" TimeoutMS="[IN_intTimeout]">
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:ImageFound.Target>
+    </ui:ImageFound>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[OUT_boolNcadOpen.ToString]" />
+  </Sequence>
+</Activity>

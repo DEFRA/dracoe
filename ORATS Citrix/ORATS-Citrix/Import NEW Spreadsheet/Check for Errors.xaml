@@ -1,0 +1,147 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Check_for_Errors" this:Check_for_Errors.IN_intTimeout="30000" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="OUT_strErrorsInFile" Type="OutArgument(x:String)" />
+    <x:Property Name="IN_intTimeout" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>680,925</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Check_for_Errors_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Check_for_Errors" sap:VirtualizedContainerService.HintSize="518,860" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Image" sap:VirtualizedContainerService.HintSize="476,768" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Import New Spreadsheet" sap:VirtualizedContainerService.HintSize="434,676" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="3367dfbfc06f936e5c42584478b51287" Selector="&lt;wnd app='wfica32.exe' cls='Transparent Windows Client' title='Import NEW Spreadsheet - \\Remote' /&gt;">
+        <ui:WindowScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,530" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image - Site Information Imported" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_1">
+                <ui:WaitImageAppear.Image>
+                  <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKwAAAAZCAYAAACsNsUeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMASURBVHhe7Zftka0gDIZtwDYowSoswjpswGL8ZSO2cs9sAyxBgiFGQa9nZpnJj2cWyAdf78Fs8/l8rKLUggpWqQoVrFIVKlilKlSwSlWoYJWqUMEqVVGPYEdjm6bxmFGwK89Zetu2vV0k2x+jXLCwqSAYoO2XdKN3N53kM3aUfCKjNU1r+0WyfYH/2ZfEGzlKeTLXw/V14f6GOYytUxjr7LSmvm9RKFguGNc3I7E7vnlQ4JcV9Ys8vMA/wTfvgTMP24MzzL4/D5uAu2k9+r7EDcEKgokbXWzfbosF4usb+s3Z60gPKrR7s+fZPv0w9z7WgH+SO6wriXdjvm+sCesy475GLCmWvg05AFwj24sx6RqjvzTvxqFkCT5+3VdrYvYkV3ZuGLtxD8m4I9lj6ddstVMH8fCiznaAPN1kV7SjoBFiQ3EjpSIvLglGvBD6soYDo4LbfqVM4ImNwONd/nhBULOe5t79vOhgTTze98PB+/qXtKW1wDjuja/LtwvnlfJjjtyaqB1z+XMsnJvO5ftn95DmS2L4GnLEMgAgpUAYj0IM4oX+OnWxneQqoFiwEX+IQbh8o8mmcRMIOTjkLP7KJvlB7ifxPpas8cqfjsXYzLx8jNqk9iEWhOXEM7Jx8JPmRhvNS/fnKVzzDeJrGUoDAEV5wPlw2x3h3hesJ/xy+eFI7SuuYkpzQ/+JYH0ceUlK/HEMx2sQLLdL42d+hUgvZvYV5eUCEfsVZYKFDeHnEvuwQbpRaMMheh/2yTmDx58dYmJLcyefx5J4bDN/n4f64F6i34N5+Ri1SW0eG8uLwrkBGMveA4zvP9bj3m+UBA5RnFGQg52J7wEsKV4VLCvmY+3FDgzr3GOx7xAPFu2Zl0qy0dgzHymetGNd7kj+uSK20n+6MO7Qp2PUJrXhb8xP5kCf3NyBonvA0g78Dnt8QbBAUt9ugA8vCZJ/1DI8LAmUr3AiQGVHBfuXUMFmUcEqVdF8/v1YRakFFaxSFSpYpSpUsEpVqGCVqlDBKhXxY38BqtMElWBy5c4AAAAASUVORK5CYII=" />
+                </ui:WaitImageAppear.Image>
+                <ui:WaitImageAppear.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="1453fc17-31bf-4b2b-9baf-a8c75d7502ea" TimeoutMS="[IN_intTimeout]">
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:WaitImageAppear.Target>
+              </ui:WaitImageAppear>
+              <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="TRANSLATE" DisplayName="Translate clipping region" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_1">
+                <ui:SetClippingRegion.Size>
+                  <ui:Region Rectangle="-267, -7, 438, 1" />
+                </ui:SetClippingRegion.Size>
+              </ui:SetClippingRegion>
+              <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text - Errors" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
+                <ui:GetOCRText.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <ui:GoogleOCR FilterRegion="{x:Null}" Output="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2">
+                      <ui:GoogleOCR.AllowedCharacters>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:GoogleOCR.AllowedCharacters>
+                      <ui:GoogleOCR.DeniedCharacters>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:GoogleOCR.DeniedCharacters>
+                    </ui:GoogleOCR>
+                  </ActivityFunc>
+                </ui:GetOCRText.OCREngine>
+                <ui:GetOCRText.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="2367b063-56c8-4381-8615-ad596e4157cc" InformativeScreenshot="15939fd782f3077854668f9657bab329">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetOCRText.Target>
+                <ui:GetOCRText.Text>
+                  <OutArgument x:TypeArguments="x:String">[OUT_strErrorsInFile]</OutArgument>
+                </ui:GetOCRText.Text>
+              </ui:GetOCRText>
+              <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="RECTANGLE" DisplayName="Reset clipping region" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_2">
+                <ui:SetClippingRegion.Size>
+                  <ui:Region Rectangle="0, 0, 0, 0" />
+                </ui:SetClippingRegion.Size>
+              </ui:SetClippingRegion>
+            </Sequence>
+          </ActivityAction>
+        </ui:WindowScope.Body>
+      </ui:WindowScope>
+    </Sequence>
+  </Sequence>
+</Activity>
