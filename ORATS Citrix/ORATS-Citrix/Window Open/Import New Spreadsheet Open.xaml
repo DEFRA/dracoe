@@ -1,0 +1,81 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Import_New_Spreadsheet_Open" this:Import_New_Spreadsheet_Open.IN_intTimeout="30000" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="OUT_boolWindowOpen" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="IN_intTimeout" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>680,519</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Import_New_Spreadsheet_Open_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Import_New_Spreadsheet_Open" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ImageFound DisplayName="Image Exists - Import NEW Spreadsheet Heading" Found="[OUT_boolWindowOpen]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+      <ui:ImageFound.Image>
+        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAALsAAAAXCAYAAABTTj7/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOuSURBVHhe7ZjhcfMgDIY9jPfwHB7DW3iEXu+aL9dF/QFCtiQkIE3TOBf9eK61EUi8eiFph6/L9+acjH9X5wEMl6/vzTkZl6vzANzsZ0RplHM//jXmjCgfwc79uNnPiNIo536Gr+vn5pyND+cB/MjsyzRsw7SE70GXl8DcwzBu81rGr/OY9oex6XmI8RSYa2mR3o/ztmrvydoIG6d5TqrzodGHOg6s2zwO27RoY49BGpwyaBNaWA0+DcukGo2ym0qJw0Zaz4yYa5i2hb2HJpeHqdb8PEfkWeb6Pp5FVZOdPzB7R6+Rtzb7GIw0BcOP88rGbjL7Om+jNHV+N8pGa7E9Yyfkbc0OxlnybQakDaYG4jt++8GcFUTDGOuW3dcIMIFRzCWZNuaYYm1m/AHm127mm8yea6AHBuOlTvXGwB5qxmhrVuqB++I6aocTxwJKjWkvZHyRmiQdMQbXx3rgJx87qNZWGWc1RcweAb9mdlrEXtwuWt5sMYeapIyBdagRZQw8j+PEBeq+2SG33E/KW3mWyPF9bVGHzCNB3ejBobQ10/VI61I9xAFfZxpf9iHlLeaTGPmptMz597yWNChZq11bfVxqXOP3zM6aqNxSoqhyToCJFtcgArIY3GxurjRHhwAx/z5PNEuaF03IMBtA65a/12/uBLll5b7amml6aDpCnFkL00/vA6uF9YSi1MNiW7V11P4MszcFVswum8nmMQMZMVbTOgSQ+ekNoppdmowRa8p1sNykPtMQBmn/LZ0jDT1wHQUaVxxo3INRN9cE8so11Xro4WzV1lM707uOm31/B4aN7243+7GeNTf97GzKDjVGeG5qZpq9dshg36w2qp8xX9Uk1RvNiPE9Zq/U1qw9QGtt8FSzF2LRzYlG76T3FTEjHQKoxsn5Z8OwLFYAZg5/IBtmi384l0ZtAUbE9ZqatcyF7yhMT4AdTGO+WksCaoC9Nurpqq0yHunoNfJcs9OPo9xYug7E0EZQIY9nJmaEGUCnrPl4nz4qbzQ7NCbOlc3JN2eraXG+yJHykn20NdP1UHWcDDPjPmSvqKGSvuEd1huej5y0BqUeka9aW8d4T6+RJ3+N4f+u1AwFDT9ieB5FTPLeWjNS1pzBZpN5sgaE5805lVumbJgGHgoKn9PWzNIDazige2f7i/WLXjE9IyEnuwBQs0z18MnDFajV1h5v9xr5kdl/A2icYjbHxDW7Dzf7C+Ga3Yeb/YVwze7jaWZ3nL/Gze68DW525024bP8Bmt9tmcxh2VAAAAAASUVORK5CYII=" />
+      </ui:ImageFound.Image>
+      <ui:ImageFound.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="bbcdae2a-2b2e-4879-8c8d-660f09d48fcb" TimeoutMS="[IN_intTimeout]">
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:ImageFound.Target>
+    </ui:ImageFound>
+  </Sequence>
+</Activity>

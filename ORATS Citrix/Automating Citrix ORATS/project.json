@@ -1,18 +1,18 @@
 {
-  "name": "Attended Process Template",
-  "description": "Template to be used by attended DEFRA processes",
+  "name": "Automating Citrix ORATS",
+  "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
-    "GetWorkflowDetailActivities": "[1.0.1]",
-    "Reusable.Components": "[1.0.7]",
+    "ORATS-Citrix": "[1.0.6]",
     "UiPath.Excel.Activities": "[2.8.6]",
+    "UiPath.Mail.Activities": "[1.8.6]",
     "UiPath.System.Activities": "[20.4.0]",
     "UiPath.UIAutomation.Activities": "[20.4.2]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
-  "studioVersion": "19.10.4.0",
-  "projectVersion": "1.0.10",
+  "studioVersion": "20.4.3.0",
+  "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
@@ -32,10 +32,6 @@
       "privateWorkflows": []
     },
     "fileInfoCollection": []
-  },
-  "arguments": {
-    "input": [],
-    "output": []
   },
   "expressionLanguage": "VisualBasic"
 }
