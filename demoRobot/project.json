@@ -6,6 +6,9 @@
     "GetWorkflowDetailActivities": "[1.0.1]",
     "Reusable.Components": "[1.0.7]",
     "UiPath.Excel.Activities": "[2.8.6]",
+    "UiPath.Form.Activities": "[1.1.11]",
+    "UiPath.FormActivityLibrary": "[1.1.11]",
+    "UiPath.FormActivityLibrary.Contracts": "[1.1.1]",
     "UiPath.System.Activities": "[20.4.0]",
     "UiPath.UIAutomation.Activities": "[20.4.2]"
   },
