@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>735,519</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>466,409</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Click_Create_New_Note_Button_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -36,7 +36,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -53,6 +53,7 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Click_Create_New_Note_Button" sap:VirtualizedContainerService.HintSize="476,344" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -61,7 +62,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserCRM]" BrowserType="IE" DisplayName="Attach Browser CRM" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="2e5ff36e05c6282de7cd630ab1fa2c10">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserCRM]" BrowserType="IE" DisplayName="Attach Browser CRM" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e8e0660421f661ae6545f846b37702e5">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -79,7 +80,7 @@
               </ui:CursorPosition>
             </ui:Click.CursorPosition>
             <ui:Click.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="70505452-83d7-4bef-8480-6bb64e5259e9" InformativeScreenshot="f880f7567a6fd623f5607985ac9d2977" Selector="&lt;webctrl id='create_note_add_btn' tag='BUTTON' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="70505452-83d7-4bef-8480-6bb64e5259e9" InformativeScreenshot="f880f7567a6fd623f5607985ac9d2977" Selector="&lt;webctrl aaname='Add note' tag='BUTTON' /&gt;">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
