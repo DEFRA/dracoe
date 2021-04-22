@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,518</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>712,519</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_For_Type_Of_Form_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -66,13 +66,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_broswerCRM]" BrowserType="IE" DisplayName="Attach Browser CRM" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="810976d6c62915a7f6ff579e11130af2">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_broswerCRM]" BrowserType="IE" DisplayName="Attach Browser CRM" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="43ab561de6cbee336841e14a0b5b901c">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Form Type Text" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+          <ui:GetValue ContinueOnError="True" DisplayName="Get Form Type Text" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
             <ui:GetValue.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ca51d98d-4979-4b9f-964c-abaab464de47" InformativeScreenshot="2a33dd8253aeed5f96e6565f6e8c0213" Selector="&lt;webctrl id='*_text-value' tag='SPAN' /&gt;" TimeoutMS="[IN_intTimeout]">
                 <ui:Target.WaitForReady>
