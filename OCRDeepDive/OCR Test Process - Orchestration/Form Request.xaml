@@ -1,0 +1,148 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="516,1078" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p1="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uiaam="clr-namespace:UiPath.IntelligentOCR.Activities.Actions.Model;assembly=UiPath.IntelligentOCR.Activities" xmlns:upaf="clr-namespace:UiPath.Persistence.Activities.FormTask;assembly=UiPath.Persistence.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="37">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Abbyy.Core.FlexiCapture</x:String>
+      <x:String>UiPath.Abbyy.Core.FlexiCapture.Enums</x:String>
+      <x:String>UiPath.Abbyy.Core.FlexiCapture.ValidationStationAdapters</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Taxonomy</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Actions.Model</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.Abbyy.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Classification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.DataExtraction</x:String>
+      <x:String>UiPath.Persistence.Activities.Model.Task</x:String>
+      <x:String>UiPath.Persistence.Activities.ExternalTask</x:String>
+      <x:String>UiPath.Persistence.Activities.FormTask</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Abbyy.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Abbyy.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.AbbyyEmbedded.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Abbyy Test" sap:VirtualizedContainerService.HintSize="526,973" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:Image" Name="imgMinor" />
+      <Variable x:TypeArguments="x:Int32" Name="intConfidence" />
+      <Variable x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))" Name="ienOutput" />
+      <Variable x:TypeArguments="x:String" Name="strText" />
+      <Variable x:TypeArguments="x:Int32" Name="intDesiredX" />
+      <Variable x:TypeArguments="p:ExtractionResult" Name="extResults" />
+      <Variable x:TypeArguments="p1:Document" Name="docModel" />
+      <Variable x:TypeArguments="p2:DocumentTaxonomy" Name="strTaxonomyMinorVariation" />
+      <Variable x:TypeArguments="sd1:DataSet" Name="dstOutput" />
+      <Variable x:TypeArguments="x:Int32" Name="intColumnNumber" />
+      <Variable x:TypeArguments="x:String" Name="strDataTable" />
+      <Variable x:TypeArguments="uiaam:DocumentValidationActionData" Name="aobVariationValidation" />
+      <Variable x:TypeArguments="x:String" Default="C:\Users\m1005058\Documents\OCR Project\OCRDeepDive\Test Docs\Revocation\Revocation P1.pdf" Name="strDocPath" />
+      <Variable x:TypeArguments="p:ClassificationResult[]" Name="excResults" />
+      <Variable x:TypeArguments="x:String" Name="strOutput" />
+      <Variable x:TypeArguments="upaf:FormTaskData" Name="tobTest" />
+      <Variable x:TypeArguments="x:String" Name="strPhoneNumber">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">+447377323946</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="strEmail">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">jason.savory@defra.gov.uk</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Double" Default="25.32" Name="decCurrency" />
+      <Variable x:TypeArguments="s:DateTime" Name="dteDateTime">
+        <Variable.Default>
+          <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="now" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="strApproval" />
+      <Variable x:TypeArguments="x:String" Name="strReason" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <upaf:CreateFormTask TimeoutMs="{x:Null}" BucketFolderPath="Test bucket 1" BucketName="Test bucket 1" DisplayName="Create Form Task" FolderPath="DEFRA Root" FormLayout="%[{&quot;title&quot;:&quot;Validation Required&quot;,&quot;collapsible&quot;:false,&quot;key&quot;:&quot;validationRequired&quot;,&quot;type&quot;:&quot;panel&quot;,&quot;label&quot;:&quot;Panel&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;components&quot;:[{&quot;label&quot;:&quot;Table&quot;,&quot;cellAlignment&quot;:&quot;left&quot;,&quot;key&quot;:&quot;table&quot;,&quot;type&quot;:&quot;table&quot;,&quot;numRows&quot;:2,&quot;numCols&quot;:2,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;rows&quot;:[[{&quot;components&quot;:[]},{&quot;components&quot;:[{&quot;label&quot;:&quot;Email&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;email&quot;,&quot;type&quot;:&quot;email&quot;,&quot;input&quot;:true}]}],[{&quot;components&quot;:[{&quot;label&quot;:&quot;Currency&quot;,&quot;tableView&quot;:false,&quot;currency&quot;:&quot;USD&quot;,&quot;key&quot;:&quot;currency&quot;,&quot;type&quot;:&quot;currency&quot;,&quot;input&quot;:true,&quot;delimiter&quot;:true}]},{&quot;components&quot;:[{&quot;label&quot;:&quot;Date / Time&quot;,&quot;tableView&quot;:false,&quot;enableMinDateInput&quot;:false,&quot;datePicker&quot;:{&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false},&quot;enableMaxDateInput&quot;:false,&quot;key&quot;:&quot;dateTime&quot;,&quot;type&quot;:&quot;datetime&quot;,&quot;input&quot;:true,&quot;widget&quot;:{&quot;type&quot;:&quot;calendar&quot;,&quot;displayInTimezone&quot;:&quot;viewer&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;useLocaleSettings&quot;:false,&quot;allowInput&quot;:true,&quot;mode&quot;:&quot;single&quot;,&quot;enableTime&quot;:true,&quot;noCalendar&quot;:false,&quot;format&quot;:&quot;yyyy-MM-dd hh:mm a&quot;,&quot;hourIncrement&quot;:1,&quot;minuteIncrement&quot;:1,&quot;time_24hr&quot;:false,&quot;minDate&quot;:null,&quot;disableWeekends&quot;:false,&quot;disableWeekdays&quot;:false,&quot;maxDate&quot;:null}}]}]]}]},{&quot;columns&quot;:[{&quot;components&quot;:[{&quot;label&quot;:&quot;Do you want the robot to approve this request?&quot;,&quot;optionsLabelPosition&quot;:&quot;right&quot;,&quot;inline&quot;:true,&quot;tableView&quot;:false,&quot;values&quot;:[{&quot;label&quot;:&quot;Yes&quot;,&quot;value&quot;:&quot;yes&quot;,&quot;shortcut&quot;:&quot;&quot;},{&quot;label&quot;:&quot;No&quot;,&quot;value&quot;:&quot;no&quot;,&quot;shortcut&quot;:&quot;&quot;}],&quot;key&quot;:&quot;doYouWantTheRobotToApproveThisRequest&quot;,&quot;type&quot;:&quot;radio&quot;,&quot;input&quot;:true,&quot;hideOnChildrenHidden&quot;:false}],&quot;width&quot;:6,&quot;offset&quot;:0,&quot;push&quot;:0,&quot;pull&quot;:0,&quot;size&quot;:&quot;md&quot;},{&quot;components&quot;:[{&quot;label&quot;:&quot;Reason for stopping process&quot;,&quot;tableView&quot;:true,&quot;defaultValue&quot;:&quot;Please describe why you have asked to stop the robot&quot;,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;reasonToStop&quot;,&quot;conditional&quot;:{&quot;show&quot;:true,&quot;when&quot;:&quot;doYouWantTheRobotToApproveThisRequest&quot;,&quot;eq&quot;:&quot;no&quot;},&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;hideOnChildrenHidden&quot;:false}],&quot;width&quot;:6,&quot;offset&quot;:0,&quot;push&quot;:0,&quot;pull&quot;:0,&quot;size&quot;:&quot;md&quot;}],&quot;autoAdjust&quot;:true,&quot;key&quot;:&quot;columns&quot;,&quot;type&quot;:&quot;columns&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;label&quot;:&quot;Columns&quot;},{&quot;label&quot;:&quot;Submit&quot;,&quot;theme&quot;:&quot;success&quot;,&quot;size&quot;:&quot;lg&quot;,&quot;block&quot;:true,&quot;disableOnInvalid&quot;:true,&quot;tableView&quot;:false,&quot;key&quot;:&quot;submit&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true}]" sap:VirtualizedContainerService.HintSize="484,371" sap2010:WorkflowViewState.IdRef="CreateFormTask_1" TaskCatalog="[&quot;DEFRA Root Catalog&quot;]" TaskOutput="[tobTest]" TaskPriority="[TaskPriority.Medium]" TaskTitle="Test form task">
+      <upaf:CreateFormTask.FormData>
+        <InOutArgument x:TypeArguments="x:String" x:Key="email">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strEmail" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:Double" x:Key="currency">
+          <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="decCurrency" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="s:DateTime" x:Key="dateTime">
+          <mva:VisualBasicReference x:TypeArguments="s:DateTime" ExpressionText="dteDateTime" />
+        </InOutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="doYouWantTheRobotToApproveThisRequest">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strApproval" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="reasonToStop">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strReason" />
+        </OutArgument>
+      </upaf:CreateFormTask.FormData>
+    </upaf:CreateFormTask>
+    <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for Form Task and Resume" sap:VirtualizedContainerService.HintSize="484,222" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_1" TaskAction="[strText]" TaskInput="[tobTest]" TaskOutput="[tobTest]" />
+    <If Condition="[strApproval.Trim = &quot;no&quot;]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Throw Exception="[new exception(&quot;user declined robot approval, reason given: &quot; &amp; strReason)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+      </If.Then>
+    </If>
+  </Sequence>
+</Activity>

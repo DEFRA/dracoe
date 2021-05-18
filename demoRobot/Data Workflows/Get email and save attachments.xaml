@@ -3,11 +3,13 @@
     <x:Property Name="IN_strEmailAccount" Type="InArgument(x:String)" />
     <x:Property Name="IN_strAttachmentFolder" Type="InArgument(x:String)" />
     <x:Property Name="OUT_msgMailInProgress" Type="OutArgument(snm:MailMessage)" />
+    <x:Property Name="IN_strInProgressFolder" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strForProcessFolder" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>892,1003</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2643,1191</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="17">
+    <scg:List x:TypeArguments="x:String" Capacity="34">
       <x:String>System</x:String>
       <x:String>System.Collections</x:String>
       <x:String>System.Collections.Generic</x:String>
@@ -25,10 +27,11 @@
       <x:String>Microsoft.VisualBasic</x:String>
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
+      <x:String>Microsoft.Exchange.WebServices.Data</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
@@ -47,9 +50,10 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Exchange.WebServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="get mail and Save Attachments" sap:VirtualizedContainerService.HintSize="376,751" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence DisplayName="get mail and Save Attachments" sap:VirtualizedContainerService.HintSize="376,834" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:ICollection(x:String)" Name="listAttachments" />
       <Variable x:TypeArguments="x:String" Name="strAttName" />
@@ -69,19 +73,26 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[IN_strEmailAccount]" DisplayName="Retry Point: Get Mail" GetAttachements="False" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_4" MailFolder="Inbox\COMPANY INFO\For Processing" MarkAsRead="False" Messages="[listMessage]" OnlyUnreadMessages="False" Top="1">
+    <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[IN_strEmailAccount]" DisplayName="Retry Point: Get Mail" GetAttachements="False" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_4" MailFolder="[IN_strForProcessFolder]" MarkAsRead="False" Messages="[listMessage]" OnlyUnreadMessages="False" Top="1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetOutlookMailMessages>
-    <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_3" MailFolder="Inbox\COMPANY INFO\In Progress" MailMessage="[listMessage(0)]" />
-    <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="Save all attachments in each message iff *.xlsx|.XLSX|.xls|.xls" DisplayName="Save Email Attachments" Filter=".*(.xlsx|.XLSX|.xls|.xls)" FolderPath="[IN_strAttachmentFolder]" sap:VirtualizedContainerService.HintSize="334,108" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_3" Message="[listMessage(0)]">
+    <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_3" MailFolder="[IN_strInProgressFolder]" MailMessage="[listMessage(0)]" />
+    <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[IN_strEmailAccount]" DisplayName="Retry Point: Get In Progress" GetAttachements="False" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_5" MailFolder="[IN_strInProgressFolder]" MarkAsRead="False" Messages="[listMessage]" OnlyUnreadMessages="False" Top="1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetOutlookMailMessages>
+    <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="Save all attachments in each message iff *.xlsx|.XLSX|.xls|.xls" DisplayName="Save Email Attachments" Filter=".*(.xlsx|.XLSX|.xls|.xls)" FolderPath="[IN_strAttachmentFolder]" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_3" Message="[listMessage(0)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>

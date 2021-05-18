@@ -1,0 +1,45 @@
+{
+  "name": "OCR Test Process",
+  "description": "Orchestration Process",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Abbyy.Activities": "[1.4.2]",
+    "UiPath.AbbyyEmbedded.Activities": "[1.1.1]",
+    "UiPath.AbbyyFRE12.Bundle": "[1.0.0]",
+    "UiPath.DocumentUnderstanding.ML.Activities": "[1.7.0]",
+    "UiPath.Excel.Activities": "[2.10.4]",
+    "UiPath.FormActivityLibrary": "[1.1.11]",
+    "UiPath.IntelligentOCR.Activities": "[4.13.1]",
+    "UiPath.Mail.Activities": "[1.10.4]",
+    "UiPath.OCR.Activities": "[3.0.0]",
+    "UiPath.PDF.Activities": "[3.4.0]",
+    "UiPath.Persistence.Activities": "[1.1.4]",
+    "UiPath.System.Activities": "[20.4.0]",
+    "UiPath.UIAutomation.Activities": "[21.4.3]"
+  },
+  "webServices": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "20.4.3.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": false,
+    "supportsPersistence": true,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "fileInfoCollection": []
+  },
+  "expressionLanguage": "VisualBasic"
+}
