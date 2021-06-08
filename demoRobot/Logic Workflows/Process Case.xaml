@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>986,2614</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1051,2614</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_Case_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -234,6 +234,15 @@
                                       <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCompaniesHouse" />
                                       <InArgument x:TypeArguments="x:String" x:Key="IN_strAPIKey">
                                         <Literal x:TypeArguments="x:String">bc57b156-ef1b-4747-8304-f3191d39c8de:</Literal>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:Boolean" x:Key="IN_booBreakpoint">
+                                        <Literal x:TypeArguments="x:Boolean" Value="True" />
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="IN_strRunType">
+                                        <Literal x:TypeArguments="x:String">Attended</Literal>
+                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="IN_strURL">
+                                        <Literal x:TypeArguments="x:String">https://find-and-update.company-information.service.gov.uk/</Literal>
                                       </InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                     <sap:WorkflowViewStateService.ViewState>

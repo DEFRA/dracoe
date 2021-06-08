@@ -1,15 +1,16 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="get_mail_and_Save_Attachments" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="get_mail_and_Save_Attachments" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_strEmailAccount" Type="InArgument(x:String)" />
     <x:Property Name="IN_strAttachmentFolder" Type="InArgument(x:String)" />
-    <x:Property Name="OUT_msgMailInProgress" Type="OutArgument(snm:MailMessage)" />
     <x:Property Name="IN_strInProgressFolder" Type="InArgument(x:String)" />
     <x:Property Name="IN_strForProcessFolder" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strQueueName" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strOrchestratorFolder" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>2643,1191</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>981,1659</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="34">
+    <scg:List x:TypeArguments="x:String" Capacity="20">
       <x:String>System</x:String>
       <x:String>System.Collections</x:String>
       <x:String>System.Collections.Generic</x:String>
@@ -28,10 +29,12 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>Microsoft.Exchange.WebServices.Data</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
@@ -51,9 +54,10 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>Microsoft.Exchange.WebServices</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="get mail and Save Attachments" sap:VirtualizedContainerService.HintSize="376,834" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence DisplayName="get mail and Save Attachments" sap:VirtualizedContainerService.HintSize="376,1594" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:ICollection(x:String)" Name="listAttachments" />
       <Variable x:TypeArguments="x:String" Name="strAttName" />
@@ -66,7 +70,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Workflow Started - get mail and Save Attachments&quot;]">
+    <ui:LogMessage DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Workflow Started - get mail and Save Attachments&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -88,7 +92,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetOutlookMailMessages>
-    <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="Save all attachments in each message iff *.xlsx|.XLSX|.xls|.xls" DisplayName="Save Email Attachments" Filter=".*(.xlsx|.XLSX|.xls|.xls)" FolderPath="[IN_strAttachmentFolder]" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_3" Message="[listMessage(0)]">
+    <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="Save all attachments in each message iff *.xlsx|.XLSX|.xls|.xls" DisplayName="Save Email Attachments" Filter=".*(.xlsx|.XLSX|.xls|.xls)" FolderPath="[IN_strAttachmentFolder]" sap:VirtualizedContainerService.HintSize="334,131" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_3" Message="[listMessage(0)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -97,15 +101,82 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:SaveMailAttachments>
-    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
-      <Assign.To>
-        <OutArgument x:TypeArguments="snm:MailMessage">[OUT_msgMailInProgress]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="snm:MailMessage">[listMessage(0)]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:LogMessage DisplayName="Log End" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Workflow Ended - get mail and Save Attachments&quot;]">
+    <Sequence DisplayName="Serialize mail message" sap:VirtualizedContainerService.HintSize="334,814" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dictMailProperties">
+          <Variable.Default>
+            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="new Dictionary(of string, object)" />
+          </Variable.Default>
+        </Variable>
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Store Attachments" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[dictMailProperties("attachments")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[listMessage(0).Attachments]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Store bcc" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[dictMailProperties("bcc")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[listMessage(0).Bcc]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Store body" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[dictMailProperties("body")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[listMessage(0).Body]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Store cc" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[dictMailProperties("cc")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[listMessage(0).CC]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Store from" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[dictMailProperties("from")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[listMessage(0).From]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Store Headers" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[dictMailProperties("headers")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[listMessage(0).Headers]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Store Subject" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[dictMailProperties("subject")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[listMessage(0).Subject]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="[IN_strOrchestratorFolder]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[dictMailProperties]" Priority="Normal" QueueType="[IN_strQueueName]">
+        <ui:AddQueueItem.ItemInformation>
+          <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+        </ui:AddQueueItem.ItemInformation>
+      </ui:AddQueueItem>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log End" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Workflow Ended - get mail and Save Attachments&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -206,7 +206,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.Condition>
-            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="CBool(jsonOutput(&quot;submit&quot;))" />
+            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="CBool(jsonOutput(&quot;submit&quot;))" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
           </Transition.Condition>
           <Transition.To>
             <State x:Name="__ReferenceID3" DisplayName="Start Up" sap:VirtualizedContainerService.HintSize="164,94" sap2010:WorkflowViewState.IdRef="State_4">
@@ -326,7 +326,7 @@
                     <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="exeSystemException is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
                   </Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID0" DisplayName="Get Next Case" sap:VirtualizedContainerService.HintSize="160,81" sap2010:WorkflowViewState.IdRef="State_10">
+                    <State x:Name="__ReferenceID0" DisplayName="Get Next Case" sap:VirtualizedContainerService.HintSize="493,951" sap2010:WorkflowViewState.IdRef="State_10">
                       <State.Entry>
                         <TryCatch DisplayName="Try Get email" sap:VirtualizedContainerService.HintSize="447,537" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                           <TryCatch.Try>
@@ -338,11 +338,24 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Get Emails" DisplayName="Get Email &amp; Save attachments" sap:VirtualizedContainerService.HintSize="367,118" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Data Workflows/Get email and save attachments.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strEmailAccount">[dictConfig("strEmailAccount").ToString]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strAttachmentFolder">[strAttachmentDirectory]</InArgument>
-                                  <OutArgument x:TypeArguments="snm:MailMessage" x:Key="OUT_msgMailInProgress">[mailCurrentCase]</OutArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strInProgressFolder">[dictConfig("Email in progress folder").ToString]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strForProcessFolder">[dictConfig("Email to process folder").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strEmailAccount">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;strEmailAccount&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strAttachmentFolder">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strAttachmentDirectory" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strInProgressFolder">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;Email in progress folder&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strForProcessFolder">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;Email to process folder&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strQueueName">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;QueueName&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strOrchestratorFolder">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;Orchestrator Folder Path&quot;).ToString" />
+                                  </InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -684,9 +697,7 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:MessageBox>
           </Transition.Action>
-          <Transition.Condition>
-            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="CBool(jsonOutput(&quot;stop&quot;))" />
-          </Transition.Condition>
+          <Transition.Condition>[CBool(jsonOutput("stop"))]</Transition.Condition>
         </Transition>
       </State.Transitions>
     </State>
