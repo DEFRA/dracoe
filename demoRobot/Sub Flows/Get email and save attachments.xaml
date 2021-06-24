@@ -1,0 +1,261 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="get_mail_and_Save_Attachments" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IN_strEmailAccount" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strAttachmentFolder" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strInProgressFolder" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strForProcessFolder" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strQueueName" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strOrchestratorFolder" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strProcessType" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1137,1488</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="44">
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>Microsoft.Exchange.WebServices.Data</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Exchange.WebServices</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="get mail and Save Attachments" sap:VirtualizedContainerService.HintSize="1147,1423" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:ICollection(x:String)" Name="listAttachments" />
+      <Variable x:TypeArguments="x:String" Name="strAttName" />
+      <Variable x:TypeArguments="snm:MailMessage" Name="msgInProgressMsg" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listInProgressMsg" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listMessage" />
+      <Variable x:TypeArguments="x:String" Name="strRequestData" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[IN_strEmailAccount]" DisplayName="Retry Point: Get Mail" GetAttachements="False" sap:VirtualizedContainerService.HintSize="1105,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_4" MailFolder="[IN_strForProcessFolder]" MarkAsRead="False" Messages="[listMessage]" OnlyUnreadMessages="False" Top="10">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetOutlookMailMessages>
+    <If Condition="[IN_strProcessType = &quot;single&quot;]" DisplayName="If single email" sap:VirtualizedContainerService.HintSize="1105,1269" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Save attachments and move to in progress" sap:VirtualizedContainerService.HintSize="512,987" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listMailInProgress" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" Filter=".*(.xlsx|.XLSX|.xls|.xls)" FolderPath="[IN_strAttachmentFolder]" sap:VirtualizedContainerService.HintSize="470,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_5" Message="[listMessage(0)]" />
+          <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="470,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_4" MailFolder="[IN_strInProgressFolder]" MailMessage="[listMessage(0)]" />
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each attachment" sap:VirtualizedContainerService.HintSize="470,641" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Directory.GetFiles(IN_strAttachmentFolder)]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="sheet" />
+                </ActivityAction.Argument>
+                <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,507" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" Visible="False" WorkbookPath="[sheet]">
+                  <ui:ExcelApplicationScope.Body>
+                    <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Upload data" sap:VirtualizedContainerService.HintSize="376,398" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="sd:DataTable" Name="dtaInputData" />
+                          <Variable x:TypeArguments="x:Int32" Name="intRowNumber" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExcelReadRange AddHeaders="True" DataTable="[dtaInputData]" DisplayName="Read All Data" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="Sheet1">
+                          <ui:ExcelReadRange.Range>
+                            <InArgument x:TypeArguments="x:String">
+                              <Literal x:TypeArguments="x:String" Value="" />
+                            </InArgument>
+                          </ui:ExcelReadRange.Range>
+                        </ui:ExcelReadRange>
+                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtaInputData]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="334,207" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                          <ui:ForEachRow.Body>
+                            <ActivityAction x:TypeArguments="sd:DataRow">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                              </ActivityAction.Argument>
+                              <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="[IN_strOrchestratorFolder]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" Priority="Normal" QueueType="[IN_strQueueName]">
+                                <ui:AddQueueItem.ItemInformation>
+                                  <InArgument x:TypeArguments="x:String" x:Key="messageID">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="listMessage(0).Headers(&quot;uid&quot;)" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="companyNumber">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.Item(&quot;Company Number&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="filePath">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="sheet" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:Int32" x:Key="rowNumber">
+                                    <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intRowNumber + 2" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="subject">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="listMessage(0).Subject" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="body">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="listMessage(0).Body" />
+                                  </InArgument>
+                                </ui:AddQueueItem.ItemInformation>
+                              </ui:AddQueueItem>
+                            </ActivityAction>
+                          </ui:ForEachRow.Body>
+                        </ui:ForEachRow>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ExcelApplicationScope.Body>
+                </ui:ExcelApplicationScope>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="548,1121" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listMessage]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="snm:MailMessage">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Save attachments and move to in progress" sap:VirtualizedContainerService.HintSize="512,987" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" Filter=".*(.xlsx|.XLSX|.xls|.xls)" FolderPath="[IN_strAttachmentFolder]" sap:VirtualizedContainerService.HintSize="470,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_4" Message="[mail]" />
+                <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="470,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_3" MailFolder="[IN_strInProgressFolder]" MailMessage="[mail]" />
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each attachment" sap:VirtualizedContainerService.HintSize="470,641" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(IN_strAttachmentFolder)]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="sheet" />
+                      </ActivityAction.Argument>
+                      <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,507" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Visible="False" WorkbookPath="[sheet]">
+                        <ui:ExcelApplicationScope.Body>
+                          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Upload data" sap:VirtualizedContainerService.HintSize="376,398" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="sd:DataTable" Name="dtaInputData" />
+                                <Variable x:TypeArguments="x:Int32" Name="intRowNumber" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:ExcelReadRange AddHeaders="True" DataTable="[dtaInputData]" DisplayName="Read All Data" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+                                <ui:ExcelReadRange.Range>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </ui:ExcelReadRange.Range>
+                              </ui:ExcelReadRange>
+                              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtaInputData]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="334,207" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                <ui:ForEachRow.Body>
+                                  <ActivityAction x:TypeArguments="sd:DataRow">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                                    </ActivityAction.Argument>
+                                    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="[IN_strOrchestratorFolder]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_3" Priority="Normal" QueueType="[IN_strQueueName]">
+                                      <ui:AddQueueItem.ItemInformation>
+                                        <InArgument x:TypeArguments="x:String" x:Key="messageID">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="mail.Headers(&quot;uid&quot;)" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="companyNumber">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="row.Item(&quot;Company Number&quot;).ToString" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="filePath">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="sheet" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="rowNumber">
+                                          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intRowNumber + 2" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="subject">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="mail.Subject" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="body">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="mail.Body" />
+                                        </InArgument>
+                                      </ui:AddQueueItem.ItemInformation>
+                                    </ui:AddQueueItem>
+                                  </ActivityAction>
+                                </ui:ForEachRow.Body>
+                              </ui:ForEachRow>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ExcelApplicationScope.Body>
+                      </ui:ExcelApplicationScope>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+        </ui:ForEach>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

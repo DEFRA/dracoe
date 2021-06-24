@@ -232,7 +232,7 @@
                                             <InArgument x:TypeArguments="x:String">[row(0).ToString]</InArgument>
                                           </Assign.Value>
                                         </Assign>
-                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Search Companies House Workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Data Workflows/Search Companies House Workflow.xaml">
+                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Search Companies House Workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Sub Flows/Search Companies House Workflow.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
                                             <InArgument x:TypeArguments="x:String" x:Key="OUT_strBusinessNumber">[strBusinessNumber]</InArgument>
                                             <OutArgument x:TypeArguments="x:String" x:Key="OUT_strName">[IN_strCompanyName]</OutArgument>
