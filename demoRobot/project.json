@@ -14,10 +14,9 @@
     "UiPath.WebAPI.Activities": "[1.6.0]"
   },
   "webServices": [],
-  "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "19.10.4.0",
-  "projectVersion": "1.0.12",
+  "projectVersion": "1.0.13",
   "runtimeOptions": {
     "exceptionHandlerWorkflow": "GlobalHandler.xaml",
     "autoDispose": false,
@@ -28,9 +27,7 @@
       "Private:*",
       "*password*"
     ],
-    "executionType": "Workflow",
-    "readyForPiP": false,
-    "startsInPiP": false
+    "executionType": "Workflow"
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -39,11 +36,7 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "processOptions": {
-      "ignoredFiles": []
-    },
-    "fileInfoCollection": [],
-    "modernBehavior": false
+    "fileInfoCollection": []
   },
   "arguments": {
     "input": [],
@@ -57,9 +50,5 @@
       "input": [],
       "output": []
     }
-  ],
-  "isTemplate": false,
-  "templateProjectData": {},
-  "publishData": {},
-  "targetFramework": "Legacy"
+  ]
 }

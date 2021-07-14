@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1030,1185</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1056,1189</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_Case_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -80,7 +80,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Process_Case" sap:VirtualizedContainerService.HintSize="400,570" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Process_Case" sap:VirtualizedContainerService.HintSize="401,541" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strCompanyName" />
       <Variable x:TypeArguments="x:String" Name="strCompanyAddress" />
@@ -92,8 +92,8 @@
         <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress" FolderPath="[IN_dictConfig(&quot;Orchestrator Folder Path&quot;).ToString]" sap:VirtualizedContainerService.HintSize="358,51" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_1" Progress="Processing Case" TransactionItem="[IO_qtrTransactionItem]" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Search Companies House Workflow" sap:VirtualizedContainerService.HintSize="358,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Sub Flows/Search Companies House Workflow.xaml">
+    <ui:SetTransactionProgress TimeoutMS="{x:Null}" DisplayName="Set Transaction Progress" FolderPath="[IN_dictConfig(&quot;Orchestrator Folder Path&quot;).ToString]" sap:VirtualizedContainerService.HintSize="359,22" sap2010:WorkflowViewState.IdRef="SetTransactionProgress_1" Progress="Processing Case" TransactionItem="[IO_qtrTransactionItem]" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Search Companies House Workflow" sap:VirtualizedContainerService.HintSize="359,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Sub Flows/Search Companies House Workflow.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="OUT_strName">
           <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCompanyName" />
@@ -130,7 +130,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <Assign DisplayName="Store company Address" sap:VirtualizedContainerService.HintSize="358,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Store company Address" sap:VirtualizedContainerService.HintSize="359,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Object">[IO_qtrTransactionItem.SpecificContent("companyAddress")]</OutArgument>
       </Assign.To>
@@ -138,7 +138,7 @@
         <InArgument x:TypeArguments="x:Object">[strCompanyAddress]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Store company Name" sap:VirtualizedContainerService.HintSize="358,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Store company Name" sap:VirtualizedContainerService.HintSize="359,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Object">[IO_qtrTransactionItem.SpecificContent("companyName")]</OutArgument>
       </Assign.To>
@@ -146,7 +146,7 @@
         <InArgument x:TypeArguments="x:Object">[strCompanyName]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Store company Status" sap:VirtualizedContainerService.HintSize="358,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Store company Status" sap:VirtualizedContainerService.HintSize="359,60" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Object">[IO_qtrTransactionItem.SpecificContent("companyStatus")]</OutArgument>
       </Assign.To>
