@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>737,519</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>664,519</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Navigate_To_Organisation_Details_Page_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -80,7 +80,7 @@
               </ui:CursorPosition>
             </ui:Click.CursorPosition>
             <ui:Click.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a2e4eeb-1ef8-4789-acf0-798530ce6016" InformativeScreenshot="d0d09ddb42c8a9901978d93f96a740aa" Selector="&lt;webctrl id='*organisation-field*' tag='LABEL' /&gt;&lt;nav up='4' /&gt;&lt;webctrl id='*organisation8-rpa_*' tag='SPAN' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a2e4eeb-1ef8-4789-acf0-798530ce6016" InformativeScreenshot="d0d09ddb42c8a9901978d93f96a740aa" Selector="&lt;webctrl data-id='rpa_organisation.fieldControl-crmSymbolFont*' /&gt;" WaitForReady="INTERACTIVE">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>

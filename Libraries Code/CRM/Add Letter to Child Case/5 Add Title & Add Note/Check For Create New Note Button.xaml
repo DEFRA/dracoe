@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>735,519</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>672,519</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_For_Create_New_Note_Button_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -74,7 +74,7 @@
           </ActivityAction.Argument>
           <ui:UiElementExists DisplayName="'Create New Note' Button Element Exists" Exists="[OUT_boolNewNoteButtonExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
             <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c48757b9-ab97-49f6-87e7-4a3f237dd551" InformativeScreenshot="f880f7567a6fd623f5607985ac9d2977" Selector="&lt;webctrl id='create_note_add_btn' tag='BUTTON' /&gt;" TimeoutMS="[IN_intTimeout]">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c48757b9-ab97-49f6-87e7-4a3f237dd551" InformativeScreenshot="f880f7567a6fd623f5607985ac9d2977" Selector="&lt;webctrl aaname='Add note' tag='BUTTON' /&gt;" TimeoutMS="[IN_intTimeout]">
                 <ui:Target.WaitForReady>
                   <InArgument x:TypeArguments="ui:WaitForReady" />
                 </ui:Target.WaitForReady>
